@@ -10,17 +10,17 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class MainBase {
-	
-	
+
 	private WebDriver driver;
+
 	public WebDriver initbrowser(String brw) {
-		if(brw.equals("Chrome")) {
+		if (brw.equals("Chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
-		}else if(brw.equals("firefox")) {
+		} else if (brw.equals("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
-		}else if(brw.equals("edge")) {
+		} else if (brw.equals("edge")) {
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
 		}
@@ -28,6 +28,7 @@ public class MainBase {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.manage().window().maximize();
 		return driver;
+		
 	}
 
 }
