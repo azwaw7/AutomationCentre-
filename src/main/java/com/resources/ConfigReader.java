@@ -13,7 +13,7 @@ public class ConfigReader {
 		prop = new Properties();
 		try {
 			FileInputStream input = new FileInputStream(
-					"C:\\Users\\azwaw.AZ\\AutomationCentre-\\src\\main\\java\\com\\resources\\conig.properties");
+					System.getProperty("user.dir") + "\\src\\main\\java\\com\\resources\\conig.properties");
 			prop.load(input);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -23,7 +23,7 @@ public class ConfigReader {
 	}
 
 	public String getBrowser() {
-		String browsern = prop.getProperty("Browser");
+		String browsern = prop.getProperty("browser");
 		return browsern;
 	}
 
@@ -66,9 +66,22 @@ public class ConfigReader {
 		String dobyear = prop.getProperty("dobyear");
 		return dobyear;
 	}
+
 	public String getConfiOfRegistartiontxt() {
 		String confirmationtxt = prop.getProperty("registrationExpectedText");
 		return confirmationtxt;
+	}
+
+	public String getExpectedTitel() {
+		String expectedTitel = prop.getProperty("expectedTitelOfLandingPage");
+		return expectedTitel;
+
+	}
+
+	public String getProductName() {
+		String prodName = prop.getProperty("productName");
+		return prodName;
+
 	}
 
 }

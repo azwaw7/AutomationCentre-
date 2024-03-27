@@ -18,8 +18,6 @@ public class RegistrePage extends AbstarctClass {
 
 	}
 
-	@FindBy(linkText = "Register")
-	private WebElement registrelink;
 	@FindBy(id = "gender-male")
 	private WebElement gendreManRadio;
 	@FindBy(id = "FirstName")
@@ -45,11 +43,6 @@ public class RegistrePage extends AbstarctClass {
 	@FindBy(css = "a[class*='register-continue-button']")
 	private WebElement FinalRegContinueBtn;
 
-	public void goToregistrationpage() {
-		registrelink.click();
-
-	}
-
 	public void registration(String firstName, String lastName, String dobdy, String dobMon, String dobyear,
 			String email, String pawssord) {
 		gendreManRadio.click();
@@ -61,8 +54,12 @@ public class RegistrePage extends AbstarctClass {
 		emailBx.sendKeys(email);
 		passwordBx.sendKeys(pawssord);
 		confirmPasswordBx.sendKeys(pawssord);
-		registerBtn.click();
+		// registerBtn.click();
 
+	}
+
+	public void clickOnSubmit() {
+		registerBtn.click();
 	}
 
 	public String getConfirmationText() {
@@ -70,8 +67,9 @@ public class RegistrePage extends AbstarctClass {
 		return confiText;
 	}
 
-	public void finishRegestration() {
+	public LoginPage finishRegestration() {
 		FinalRegContinueBtn.click();
+		return new LoginPage(driver);
 
 	}
 
